@@ -8,51 +8,71 @@ package org.prateek.spring;
  */
 public class Triangle
 {
-    private String type;
-    private int height;
+    private Point a;
+    private Point b;
+    private Point c;
 
-    public Triangle(final String type)
+    /**
+     * @return the a
+     */
+    public Point getA()
     {
-        this.type = type;
-    }
-
-    public Triangle(final int height)
-    {
-        this.height = height;
-    }
-
-    public Triangle(final String type, final int height)
-    {
-        this.type = type;
-        this.height = height;
+        return a;
     }
 
     /**
-     * @return the height
+     * @param a the a to set
      */
-    public int getHeight()
+    public void setA(final Point a)
     {
-        return height;
+        this.a = a;
     }
 
     /**
-     * @return the type
+     * @return the b
      */
-    public String getType()
+    public Point getB()
     {
-        return type;
+        return b;
+    }
+
+    /**
+     * @param b the b to set
+     */
+    public void setB(final Point b)
+    {
+        this.b = b;
+    }
+
+    /**
+     * @return the c
+     */
+    public Point getC()
+    {
+        return c;
+    }
+
+    /**
+     * @param c the c to set
+     */
+    public void setC(final Point c)
+    {
+        this.c = c;
     }
 
     public void draw()
     {
-        System.out.println("Triangle drawn with type: " + getType() + "with height: " + getHeight());
+        System.out.println("Triangle drawn with point: "
+                + getA().getX()
+                + ","
+                + getA().getY()
+                + " and "
+                + getB().getX()
+                + ","
+                + getB().getY()
+                + " and "
+                + getC().getX()
+                + ","
+                + getC().getY());
     }
-
-    //    /**
-    //     * @param type the type to set
-    //     */
-    //    public void setType(final String type)
-    //    {
-    //        this.type = type;
-    //    }
 }
