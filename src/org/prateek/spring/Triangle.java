@@ -3,76 +3,37 @@
 
 package org.prateek.spring;
 
+import java.util.List;
+
 /**
  * 
  */
 public class Triangle
 {
-    private Point a;
-    private Point b;
-    private Point c;
+    List<Point> points;
 
     /**
-     * @return the a
+     * @return the points
      */
-    public Point getA()
+    public List<Point> getPoints()
     {
-        return a;
+        return points;
     }
 
     /**
-     * @param a the a to set
+     * @param points the points to set
      */
-    public void setA(final Point a)
+    public void setPoints(final List<Point> points)
     {
-        this.a = a;
-    }
-
-    /**
-     * @return the b
-     */
-    public Point getB()
-    {
-        return b;
-    }
-
-    /**
-     * @param b the b to set
-     */
-    public void setB(final Point b)
-    {
-        this.b = b;
-    }
-
-    /**
-     * @return the c
-     */
-    public Point getC()
-    {
-        return c;
-    }
-
-    /**
-     * @param c the c to set
-     */
-    public void setC(final Point c)
-    {
-        this.c = c;
+        this.points = points;
     }
 
     public void draw()
     {
-        System.out.println("Triangle drawn with point: "
-                + getA().getX()
-                + ","
-                + getA().getY()
-                + " and "
-                + getB().getX()
-                + ","
-                + getB().getY()
-                + " and "
-                + getC().getX()
-                + ","
-                + getC().getY());
+        System.out.println("Triangle drawn with points: ");
+        for (final Point p : points)
+        {
+            System.out.println("(" + p.getX() + "," + p.getY() + ")");
+        }
     }
 }

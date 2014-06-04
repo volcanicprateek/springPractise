@@ -4,25 +4,24 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean id="triangle" class="org.prateek.spring.Triangle">
-    <property name="a" ref="Point1"></property>
-    <property name="b">
-        <bean class="org.prateek.spring.Point">
-        <property name="x" value="-20"></property>
-        <property name="y" value="0"></property>
-        </bean>
-    </property>
-    <property name="c">
-        <bean class="org.prateek.spring.Point">
-        <property name="x" value="0"></property>
-         <property name="y" value="20"></property>
-    </bean>
+    <property name="points">
+    <list>
+    <ref bean="Point1"/>
+    <ref bean="Point2"/>
+    <ref bean="Point3"/>
+    </list>
     </property>
     </bean>
     <bean id="Point1" class="org.prateek.spring.Point">
     <property name="x" value="0"></property>
     <property name="y" value="0"></property>
     </bean>
-    
-<alias name="triangle" alias="triangle-alias"/>
-   
+    <bean id="Point2" class="org.prateek.spring.Point">
+    <property name="x" value="-20"></property>
+    <property name="y" value="0"></property>
+    </bean>
+    <bean id="Point3" class="org.prateek.spring.Point">
+    <property name="x" value="0"></property>
+    <property name="y" value="20"></property>
+    </bean>
     </beans>
