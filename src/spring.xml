@@ -3,24 +3,17 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="triangle" class="org.prateek.spring.Triangle">
-    <property name="points">
-    <list>
-    <ref bean="Point1"/>
-    <ref bean="Point2"/>
-    <ref bean="Point3"/>
-    </list>
-    </property>
+    <bean id="triangle" class="org.prateek.spring.Triangle" autowire="byName">
     </bean>
-    <bean id="Point1" class="org.prateek.spring.Point">
+    <bean id="a" class="org.prateek.spring.Point">
     <property name="x" value="0"></property>
     <property name="y" value="0"></property>
     </bean>
-    <bean id="Point2" class="org.prateek.spring.Point">
+    <bean id="b" class="org.prateek.spring.Point">
     <property name="x" value="-20"></property>
     <property name="y" value="0"></property>
     </bean>
-    <bean id="Point3" class="org.prateek.spring.Point">
+    <bean id="c" class="org.prateek.spring.Point">
     <property name="x" value="0"></property>
     <property name="y" value="20"></property>
     </bean>
