@@ -8,13 +8,13 @@ package org.prateek.spring;
  */
 public class Point
 {
-    private int x;
-    private int y;
+    private String x;
+    private String y;
 
     /**
      * @return the x
      */
-    public int getX()
+    public String getX()
     {
         return x;
     }
@@ -22,7 +22,7 @@ public class Point
     /**
      * @param x the x to set
      */
-    public void setX(final int x)
+    public void setX(final String x)
     {
         this.x = x;
     }
@@ -30,7 +30,7 @@ public class Point
     /**
      * @return the y
      */
-    public int getY()
+    public String getY()
     {
         return y;
     }
@@ -38,7 +38,7 @@ public class Point
     /**
      * @param y the y to set
      */
-    public void setY(final int y)
+    public void setY(final String y)
     {
         this.y = y;
     }
