@@ -3,17 +3,12 @@
 
 package org.prateek.spring;
 
-import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.BeanNameAware;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
 
 /**
  * 
  */
-public class Triangle implements ApplicationContextAware, BeanNameAware
+public class Triangle
 {
-    private ApplicationContext context = null;
 
     private Point a;
     private Point b;
@@ -73,30 +68,6 @@ public class Triangle implements ApplicationContextAware, BeanNameAware
         System.out.println("(" + getA().getX() + "," + getA().getY() + ")");
         System.out.println("(" + getB().getX() + "," + getB().getY() + ")");
         System.out.println("(" + getC().getX() + "," + getC().getY() + ")");
-    }
-
-    /*
-     * @see
-     * org.springframework.context.ApplicationContextAware#setApplicationContext
-     * (org.springframework.context.ApplicationContext)
-     */
-    @Override
-    public void setApplicationContext(final ApplicationContext context)
-            throws BeansException
-    {
-        this.context = context;
-    }
-
-    /*
-     * @see
-     * org.springframework.beans.factory.BeanNameAware#setBeanName(java.lang
-     * .String)
-     */
-    @Override
-    public void setBeanName(final String bean)
-    {
-        System.out.println("Bean Name is : " + bean);
-
     }
 
 }
