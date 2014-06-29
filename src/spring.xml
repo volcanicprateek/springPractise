@@ -4,10 +4,10 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean id="triangle" class="org.prateek.spring.Triangle" autowire="byName">
-    <property name="a" ref="Point1"></property>
-  <property name="b" ref="Point2"></property>
-   <property name="c" ref="Point3"></property>
-  </bean>
+    <property name="a" ref="a"></property>
+    <property name="b" ref="b"></property>
+    <property name="c" ref="c"></property>
+    </bean>
     <bean id="a" class="org.prateek.spring.Point">
     <property name="x" value="0"></property>
     <property name="y" value="0"></property>
@@ -20,4 +20,6 @@
     <property name="x" value="0"></property>
     <property name="y" value="20"></property>
     </bean>
+    
+    <bean class="org.prateek.spring.DisplayNameBeanPostProcessor"></bean>
     </beans>

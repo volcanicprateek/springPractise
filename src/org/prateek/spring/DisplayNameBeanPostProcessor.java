@@ -17,11 +17,11 @@ public class DisplayNameBeanPostProcessor implements BeanPostProcessor
      * postProcessAfterInitialization(java.lang.Object, java.lang.String)
      */
     @Override
-    public Object postProcessAfterInitialization(final Object arg0, final String arg1)
+    public Object postProcessAfterInitialization(final Object bean, final String beanName)
             throws BeansException
     {
-        System.out.println("in postProcessAfterInitialization ");
-        return null;
+        System.out.println("in postProcessAfterInitialization. Bean name is : " + beanName);
+        return bean;
     }
 
     /*
@@ -29,11 +29,11 @@ public class DisplayNameBeanPostProcessor implements BeanPostProcessor
      * postProcessBeforeInitialization(java.lang.Object, java.lang.String)
      */
     @Override
-    public Object postProcessBeforeInitialization(final Object arg0, final String arg1)
+    public Object postProcessBeforeInitialization(final Object bean, final String beanName)
             throws BeansException
     {
-        System.out.println("in postProcessBeforeInitialization");
-        return null;
+        System.out.println("in postProcessBeforeInitialization . Bean name is : " + beanName);
+        return bean;
     }
 
 }
