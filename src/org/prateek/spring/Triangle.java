@@ -3,11 +3,10 @@
 
 package org.prateek.spring;
 
-
 /**
  * 
  */
-public class Triangle
+public class Triangle implements Shape
 {
 
     private Point a;
@@ -62,6 +61,7 @@ public class Triangle
         this.c = c;
     }
 
+    @Override
     public void draw()
     {
         System.out.println("Triangle drawn with points: ");
