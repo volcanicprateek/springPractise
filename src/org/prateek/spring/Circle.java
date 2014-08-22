@@ -3,7 +3,8 @@
 
 package org.prateek.spring;
 
-import org.springframework.beans.factory.annotation.Required;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * 
@@ -24,7 +25,8 @@ public class Circle implements Shape
     /**
      * @param center the center to set
      */
-    @Required
+    @Autowired
+    @Qualifier("circleRelated")
     public void setCenter(final Point center)
     {
         this.center = center;
