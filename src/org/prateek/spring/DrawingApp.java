@@ -3,7 +3,7 @@
 
 package org.prateek.spring;
 
-import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -18,8 +18,9 @@ public class DrawingApp
     public static void main(final String[] args)
     {
 
-        final ApplicationContext appContext = new ClassPathXmlApplicationContext("spring.xml");
+        final AbstractApplicationContext appContext = new ClassPathXmlApplicationContext("spring.xml");
 
+        appContext.registerShutdownHook();
         final Shape shape = (Shape) appContext.getBean("circle");
 
         shape.draw();

@@ -3,8 +3,9 @@
 
 package org.prateek.spring;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import javax.annotation.Resource;
 
 /**
  * 
@@ -25,11 +26,22 @@ public class Circle implements Shape
     /**
      * @param center the center to set
      */
-    @Autowired
-    @Qualifier("circleRelated")
+    @Resource(name = "c")
     public void setCenter(final Point center)
     {
         this.center = center;
+    }
+
+    @PostConstruct
+    public void initialize()
+    {
+        System.out.println("Circle bean initialized");
+    }
+
+    @PreDestroy
+    public void destroyCircle()
+    {
+        System.out.println("Destroying circle");
     }
 
     /*
