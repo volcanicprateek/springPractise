@@ -3,17 +3,26 @@
 
 package org.prateek.spring;
 
+import java.util.Locale;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.stereotype.Service;
+
 /**
  * 
  */
+@Service
 public class Circle implements Shape
 {
 
     private Point center;
+    @Autowired
+    private MessageSource messageSource;
 
     /**
      * @return the center
@@ -24,9 +33,25 @@ public class Circle implements Shape
     }
 
     /**
+     * @return the messageSource
+     */
+    public MessageSource getMessageSource()
+    {
+        return messageSource;
+    }
+
+    /**
+     * @param messageSource the messageSource to set
+     */
+    public void setMessageSource(final MessageSource messageSource)
+    {
+        this.messageSource = messageSource;
+    }
+
+    /**
      * @param center the center to set
      */
-    @Resource(name = "c")
+    @Resource
     public void setCenter(final Point center)
     {
         this.center = center;
@@ -35,13 +60,13 @@ public class Circle implements Shape
     @PostConstruct
     public void initialize()
     {
-        System.out.println("Circle bean initialized");
+        System.out.println(messageSource.getMessage("drawing.circle", null, "Default ", Locale.ENGLISH));
     }
 
     @PreDestroy
     public void destroyCircle()
     {
-        System.out.println("Destroying circle");
+        System.out.println(messageSource.getMessage("destroy.circle", null, "Default greeting", Locale.ENGLISH));
     }
 
     /*
@@ -50,8 +75,9 @@ public class Circle implements Shape
     @Override
     public void draw()
     {
-        System.out.println("Center is : " + center.getX() + "," + center.getY());
-
+        System.out.println(messageSource.getMessage("drawing.point", new Object[] {
+                center.getX(), center.getY()
+        }, "Default greeting", Locale.ENGLISH));
     }
 
 }
