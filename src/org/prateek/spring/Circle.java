@@ -10,6 +10,8 @@ import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.context.ApplicationEventPublisherAware;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
@@ -17,10 +19,13 @@ import org.springframework.stereotype.Service;
  * 
  */
 @Service
-public class Circle implements Shape
+public class Circle implements Shape, ApplicationEventPublisherAware
 {
 
     private Point center;
+
+    private ApplicationEventPublisher publisher;
+
     @Autowired
     private MessageSource messageSource;
 
@@ -78,6 +83,19 @@ public class Circle implements Shape
         System.out.println(messageSource.getMessage("drawing.point", new Object[] {
                 center.getX(), center.getY()
         }, "Default greeting", Locale.ENGLISH));
+        publisher.publishEvent(new DrawEvent(this));
+
     }
 
+    /*
+     * @see org.springframework.context.ApplicationEventPublisherAware#
+     * setApplicationEventPublisher
+     * (org.springframework.context.ApplicationEventPublisher)
+     */
+    @Override
+    public void setApplicationEventPublisher(final ApplicationEventPublisher publisher)
+    {
+        // TODO Auto-generated method stub
+        this.publisher = publisher;
+    }
 }
